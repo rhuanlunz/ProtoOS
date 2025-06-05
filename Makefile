@@ -39,10 +39,11 @@ build_disk_image:
 
 
 run: $(DISK_IMAGE)
-	@echo "</> Running Lynx OS."
+	@echo "</> Running ProtoOS."
 
 	@$(QEMU) $(QEMU_FLAGS) $(DISK_IMAGE)
 
+	@clear
 
 clean:
 	@echo "</> Cleaning build directory."
