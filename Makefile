@@ -1,10 +1,10 @@
-CC 			= nasm
+CC			= nasm
 CC_FLAGS	= -f bin -o
-QEMU 		= qemu-system-i386
-QEMU_FLAGS 	= -fda
+QEMU		= qemu-system-i386
+QEMU_FLAGS	= -fda
 
-BOOTLOADER 	= ./src/boot/bootloader.asm
-KERNEL 		= ./src/kernel/kernel.asm
+BOOTLOADER	= ./src/boot/bootloader.asm
+KERNEL		= ./src/kernel/kernel.asm
 BUILD_DIR	= ./build
 
 DISK_IMAGE	= ./build/proto-os.img
