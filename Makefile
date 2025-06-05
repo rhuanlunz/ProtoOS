@@ -10,7 +10,7 @@ BUILD_DIR	= ./build
 DISK_IMAGE	= ./build/proto-os.img
 
 
-all: create_build_dir build_binaries build_disk_image run
+all: clean create_build_dir build_binaries build_disk_image run
 
 create_build_dir:
 	@echo "</> Creating ./build directory."
@@ -33,7 +33,7 @@ build_disk_image:
 	
 	@dd if=$(BUILD_DIR)/bootloader.bin of=$(DISK_IMAGE) bs=512 seek=0 count=1 conv=notrunc
 
-	@dd if=$(BUILD_DIR)/kernel.bin of=$(DISK_IMAGE) bs=512 seek=1 count=1 conv=notrunc
+	@dd if=$(BUILD_DIR)/kernel.bin of=$(DISK_IMAGE) bs=512 seek=1 count=2 conv=notrunc
 
 	@rm -rf *.bin
 

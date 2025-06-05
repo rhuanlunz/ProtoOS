@@ -52,7 +52,7 @@ _puts_with_delay:
     mov si, [bp + 2]    ; string
     mov cx, [bp + 4]    ; microseconds
 
-    .print:
+    _puts_with_delay.print:
         mov ah, 0eh
         lodsb       ; load byte from si to al
         int 10h
@@ -61,7 +61,7 @@ _puts_with_delay:
         int 15h
 
         or al, al   ; verify if al is null
-        jnz .print
+        jnz _puts_with_delay.print
     ret
 
 ; Print char in specific position
