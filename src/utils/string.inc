@@ -1,14 +1,11 @@
 ; Compare if strings are equal
-; %1 = str1
-; %2 = str2
+; si = str1
+; di = str2
 ; return:
 ;   equal -> ax = 1
 ;   not equal -> ax = 0
-%macro StrCompare 2
+StrCompare:
     pusha
-
-    mov si, %1 ; str1
-    mov di, %2 ; str2
 
     StrCompare.repeat:
         mov al, [si]
@@ -27,13 +24,11 @@
 
 
     StrCompare.notequal:
-        mov ax, 00h
         jmp StrCompare.end
     
     StrCompare.equal:
-        mov ax, 01h
     
     StrCompare.end:
     
     popa
-%endmacro
+    ret

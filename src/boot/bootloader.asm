@@ -18,7 +18,7 @@ setup:
 
 load_kernel:
     mov ah, 02h    ; Read Disk Sectors function
-    mov al, 02h    ; Number of sectors to read
+    mov al, 05h    ; Number of sectors to read
     mov ch, 00h    ; Track/Cylinder number
     mov cl, 02h    ; Sector number
     mov dh, 00h    ; Head number
@@ -34,8 +34,6 @@ load_kernel:
     jc error_disk        ; jmp if carry flag is set (CF = 1)
 
     jmp 7e00h
-
-    jmp halt
 
 error_disk:
     lea si, error_disk_msg

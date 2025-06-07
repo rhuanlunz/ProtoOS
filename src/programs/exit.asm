@@ -1,0 +1,3 @@
+Program.exit:
+    cli
+    hlt

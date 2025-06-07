@@ -7,7 +7,7 @@ BOOTLOADER	= ./src/boot/bootloader.asm
 KERNEL		= ./src/kernel/kernel.asm
 BUILD_DIR	= ./build
 
-DISK_IMAGE	= ./build/proto-os.img
+DISK_IMAGE	= ./build/ProtoOS.img
 
 
 all: clean create_build_dir build_binaries build_disk_image run
@@ -33,7 +33,7 @@ build_disk_image:
 	
 	@dd if=$(BUILD_DIR)/bootloader.bin of=$(DISK_IMAGE) bs=512 seek=0 count=1 conv=notrunc
 
-	@dd if=$(BUILD_DIR)/kernel.bin of=$(DISK_IMAGE) bs=512 seek=1 count=2 conv=notrunc
+	@dd if=$(BUILD_DIR)/kernel.bin of=$(DISK_IMAGE) bs=512 seek=1 count=5 conv=notrunc
 
 	@rm -rf *.bin
 
