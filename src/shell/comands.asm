@@ -28,10 +28,6 @@ Shell.ExecuteCommand:
     call StrCompare
     jz Shell.ExecuteCommand.hello
 
-    mov di, xorfractCmd
-    call StrCompare
-    jz Shell.ExecuteCommand.xorfract
-
     mov di, exitCmd
     call StrCompare
     jz Shell.ExecuteCommand.exit
