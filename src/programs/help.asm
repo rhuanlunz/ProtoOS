@@ -1,7 +1,8 @@
-helpOutputCmd   db "help    - list available commands", 0ffh
-                db "clear   - clear terminal screen", 0ffh
-                db "hello   - say 'hello' to kernel", 0ffh
-                db "exit    - finish kernel", 00h
+helpOutputCmd   db "help        - list available commands", 0ffh
+                db "clear       - clear terminal screen", 0ffh
+                db "hello       - say 'hello' to kernel", 0ffh
+                db "xorfract    - Render XOR Fractal on screen", 0ffh
+                db "exit        - finish kernel", 00h
 
 Program.help:
     call AddNewLine

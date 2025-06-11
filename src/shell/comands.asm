@@ -2,15 +2,20 @@
 %include "./src/programs/help.asm"
 %include "./src/programs/clear.asm"
 %include "./src/programs/hello.asm"
+%include "./src/programs/xorfract.asm"
 %include "./src/programs/exit.asm"
 
 helpCmd     db "help", 00h
 clearCmd    db "clear", 00h
 helloCmd    db "hello", 00h
 exitCmd     db "exit", 00h
+xorfractCmd db "xorfract", 00h
 notFound    db "Command not found!", 00h
 
 Shell.ExecuteCommand:
+    push si
+    push di
+
     mov si, keyboardBuffer
     
     mov di, helpCmd
@@ -24,6 +29,10 @@ Shell.ExecuteCommand:
     mov di, helloCmd
     call StrCompare
     jz Shell.ExecuteCommand.hello
+
+    mov di, xorfractCmd
+    call StrCompare
+    jz Shell.ExecuteCommand.xorfract
 
     mov di, exitCmd
     call StrCompare
@@ -45,6 +54,11 @@ Shell.ExecuteCommand:
         call Program.hello
 
         jmp Shell.ExecuteCommand.end
+    
+    Shell.ExecuteCommand.xorfract:
+        call Program.xorfract
+
+        jmp Shell.ExecuteCommand.end
 
     Shell.ExecuteCommand.notFound:
         push notFound
@@ -59,4 +73,6 @@ Shell.ExecuteCommand:
     Shell.ExecuteCommand.end:
         call AddNewLine
 
+    pop di
+    pop si
     ret
