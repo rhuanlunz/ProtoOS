@@ -1,7 +1,5 @@
 # :computer: ProtoOS
 
-**OBSERVAÇÃO: ESTE PROJETO AINDA NÃO FOI CONCLUÍDO!**
-
 ProtoOS é um mini sistema operacional desenvolvido em uma semana, inteiramente em Assembly 8086, que opera no modo real da CPU. Este projeto foi criado como parte de um trabalho sobre Sistemas Operacionais para minha faculdade.
 
 ---
